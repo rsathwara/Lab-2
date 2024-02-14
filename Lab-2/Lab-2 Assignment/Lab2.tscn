@@ -1,0 +1,753 @@
+[gd_scene load_steps=18 format=3 uid="uid://fwcddat3uhnw"]
+
+[ext_resource type="Texture2D" uid="uid://bds17ajkobj0k" path="res://1400633119_metal2.jpg" id="1_r5e42"]
+[ext_resource type="Texture2D" uid="uid://cw7tlx0kpa213" path="res://360_F_204215310_stS3AhMId7Rbb5RsWoEz1W71amGLbzvK.jpg" id="2_0kkp4"]
+[ext_resource type="Texture2D" uid="uid://bqcdhadpv1fjw" path="res://Screenshot 2024-02-13 170811.png" id="3_ocpxi"]
+[ext_resource type="Script" path="res://MeshInstance3D.gd" id="4_wp51b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ttvkm"]
+albedo_texture = ExtResource("1_r5e42")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ttkag"]
+metallic = 1.0
+metallic_specular = 1.0
+clearcoat_enabled = true
+clearcoat_roughness = 0.67
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uwawc"]
+albedo_color = Color(0.329412, 0.235294, 0.109804, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xkdh7"]
+albedo_color = Color(0, 0.207843, 0.0117647, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cwmne"]
+albedo_color = Color(0.0941176, 0.0588235, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i6yw1"]
+albedo_texture = ExtResource("2_0kkp4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x2exi"]
+albedo_color = Color(0.772549, 0.952941, 0.972549, 0.47451)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lct3b"]
+sky_top_color = Color(0.301961, 0.490196, 0.8, 1)
+sky_horizon_color = Color(0.612745, 0.653922, 0.723529, 1)
+ground_bottom_color = Color(0.14902, 0.12549, 0.0941176, 1)
+ground_horizon_color = Color(0.612745, 0.653922, 0.723529, 1)
+
+[sub_resource type="Sky" id="Sky_qs8mi"]
+sky_material = SubResource("ProceduralSkyMaterial_lct3b")
+
+[sub_resource type="Environment" id="Environment_bjt6w"]
+background_mode = 2
+sky = SubResource("Sky_qs8mi")
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6mgu3"]
+albedo_texture = ExtResource("3_ocpxi")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_swoy3"]
+height = 2.99
+radial_segments = 211
+rings = 486
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0qc4a"]
+albedo_color = Color(0.00784314, 0.00784314, 0.12549, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="car" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.63671, 0.882699, 2.07567)
+material_override = SubResource("StandardMaterial3D_ttvkm")
+snap = 1e-06
+size = Vector3(2.746, 0.755, 4.527)
+material = SubResource("StandardMaterial3D_ttkag")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="car"]
+transform = Transform3D(0.999996, 0.00089009, 0.00274022, -0.000890106, 1, 4.66063e-06, -0.00274018, -7.09967e-06, 0.999997, 0.103558, 0.353273, 2.08426)
+polygon = PackedVector2Array(-1.3752, -0.0240059, -0.585161, 0.753365, 0.362504, 0.752876, 1.127, -0.00779986)
+depth = 3.86
+
+[node name="tree" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.999478, 0.0014084, 0.00274023, -0.000889645, 1.58232, 4.66064e-06, -0.00273876, -1.12339e-05, 1, -12.0829, -0.582424, -18.3107)
+radius = 0.315588
+height = 2.90694
+material = SubResource("StandardMaterial3D_uwawc")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="tree"]
+transform = Transform3D(0.999566, 0.0294742, -9.81381e-07, -0.0294742, 0.999565, -8.07691e-05, -1.39978e-06, 8.07619e-05, 1, -0.504679, 1.9147, 0.510409)
+polygon = PackedVector2Array(-0.461382, -0.68212, 0.106607, 0.555147, 0.612461, 1.38306, 1.95128, -0.572979)
+material = SubResource("StandardMaterial3D_xkdh7")
+
+[node name="tree2" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1.38535, 0.00121744, 0.00263185, -0.00123311, 1.36777, 4.47632e-06, -0.00379612, -9.71071e-06, 0.96045, -21.4117, -10.7095, -41.6638)
+radius = 0.315588
+height = 2.90694
+material = SubResource("StandardMaterial3D_uwawc")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="tree2"]
+transform = Transform3D(0.999566, 0.0294742, -9.81381e-07, -0.0294742, 0.999565, -8.07691e-05, -1.39978e-06, 8.07619e-05, 1, -0.504679, 1.9147, 0.510409)
+polygon = PackedVector2Array(-0.461382, -0.68212, 0.106607, 0.555147, 0.612461, 1.38306, 1.95128, -0.572979)
+material = SubResource("StandardMaterial3D_xkdh7")
+
+[node name="tree3" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1.42305, 0.00185884, 0.00155304, -0.00126667, 2.08837, 2.64145e-06, -0.00389942, -1.48267e-05, 0.566757, -15.0943, -0.894044, -32.2244)
+radius = 0.315588
+height = 2.90694
+material = SubResource("StandardMaterial3D_uwawc")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="tree3"]
+transform = Transform3D(0.999566, 0.0294742, -9.81381e-07, -0.0294742, 0.999565, -8.07691e-05, -1.39978e-06, 8.07619e-05, 1, -0.504679, 1.9147, 0.510409)
+polygon = PackedVector2Array(-0.461382, -0.68212, 0.106607, 0.555147, 0.612461, 1.38306, 1.95128, -0.572979)
+material = SubResource("StandardMaterial3D_xkdh7")
+
+[node name="tree4" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1.53252, 0.0010096, 0.00155336, -0.00136411, 1.13427, 2.642e-06, -0.00419941, -8.05296e-06, 0.566874, -24.9504, -7.84295, -31.9905)
+radius = 0.315588
+height = 2.90694
+material = SubResource("StandardMaterial3D_uwawc")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="tree4"]
+transform = Transform3D(0.999566, 0.0294742, -9.81381e-07, -0.0294742, 0.999565, -8.07691e-05, -1.39978e-06, 8.07619e-05, 1, -0.504679, 1.9147, 0.510409)
+polygon = PackedVector2Array(-0.461382, -0.68212, 0.106607, 0.555147, 0.612461, 1.38306, 1.95128, -0.572979)
+material = SubResource("StandardMaterial3D_xkdh7")
+
+[node name="tree5" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1.57606, 0.00205051, 0.00116872, -0.00140286, 2.30372, 1.98779e-06, -0.00431869, -1.63556e-05, 0.426505, -33.3461, -5.47662, -42.7548)
+radius = 0.315588
+height = 2.90694
+material = SubResource("StandardMaterial3D_uwawc")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="tree5"]
+transform = Transform3D(0.999566, 0.0294742, -9.81381e-07, -0.0294742, 0.999565, -8.07691e-05, -1.39978e-06, 8.07619e-05, 1, -0.504679, 1.9147, 0.510409)
+polygon = PackedVector2Array(-0.461382, -0.68212, 0.106607, 0.555147, 0.612461, 1.38306, 1.95128, -0.572979)
+material = SubResource("StandardMaterial3D_xkdh7")
+
+[node name="tree6" type="CSGCylinder3D" parent="."]
+transform = Transform3D(2.27032, 0.00256571, 0.0056186, -0.00202083, 2.88253, 9.55626e-06, -0.0062211, -2.0465e-05, 2.05042, -40.1668, -5.47662, -37.0083)
+radius = 0.315588
+height = 2.90694
+material = SubResource("StandardMaterial3D_uwawc")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="tree6"]
+transform = Transform3D(0.999566, 0.0294742, -9.81381e-07, -0.0294742, 0.999565, -8.07691e-05, -1.39978e-06, 8.07619e-05, 1, -0.504679, 1.9147, 0.510409)
+polygon = PackedVector2Array(-0.461382, -0.68212, 0.106607, 0.555147, 0.612461, 1.38306, 1.95128, -0.572979)
+material = SubResource("StandardMaterial3D_xkdh7")
+
+[node name="rear right wheel" type="CSGTorus3D" parent="."]
+transform = Transform3D(0.0245193, -0.999699, -4.23664e-05, 0.999698, 0.0245194, -0.00172736, 0.00172788, 7.37799e-12, 0.999999, 8.76205, 0.484766, 3.69075)
+inner_radius = 0.592215
+outer_radius = 0.213482
+sides = 57
+ring_sides = 19
+material = SubResource("StandardMaterial3D_cwmne")
+
+[node name="rear left wheel" type="CSGTorus3D" parent="rear right wheel"]
+transform = Transform3D(0.999175, 0.0406025, 1.43016e-06, -0.0406026, 0.999176, 7.01568e-05, 1.42504e-06, -7.01564e-05, 1, -0.0521767, 2.12485, -0.0351901)
+inner_radius = 0.592215
+outer_radius = 0.213482
+sides = 57
+ring_sides = 19
+material = SubResource("StandardMaterial3D_cwmne")
+
+[node name="front right wheel" type="CSGTorus3D" parent="rear right wheel"]
+transform = Transform3D(0.999798, -0.0200874, 3.4878e-07, 0.0200874, 0.999798, -3.47085e-05, 3.48664e-07, 3.47085e-05, 1, -0.00383741, 9.53674e-07, -2.22084)
+inner_radius = 0.592215
+outer_radius = 0.213482
+sides = 57
+ring_sides = 19
+material = SubResource("StandardMaterial3D_cwmne")
+
+[node name="mountain" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, 57.7507, -13.3625, -529.711)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -6.25127, 14.0053, 0.826453, 8.33753, 4.59939, -3.5263)
+depth = 2.3
+smooth_faces = true
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.10551, -2.08503, -38.9155)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -0.855138, 35.1267, 6.94859, 17.3299, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain" type="CSGPolygon3D" parent="mountain"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, 25.4656, -4.23017, -38.0353)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-16.7802, -3.2089, -15.0274, 9.73393, -7.42982, 32.0639, 4.59939, -3.5263)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.10551, -2.08503, -19.2901)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -6.59473, 21.109, 2.13637, 28.8814, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain" type="CSGPolygon3D" parent="mountain/mountain"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, 29.454, -2.52956, -20.6385)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -10.4633, 34.4531, -7.06157, 25.7278, 0.425407, -3.46379)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain/mountain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.10551, -2.08503, -19.2901)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -6.59473, 21.109, -4.29867, 50.8731, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain3" type="CSGPolygon3D" parent="mountain"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, -66.2339, -2.52956, 9.72089)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-0.906082, 12.2402, -6.25127, 14.0053, 0.826453, 8.33753, 4.59939, -3.5263)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.79508, -5.07058, -19.0302)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -2.65337, 37.4655, 6.94859, 17.3299, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain" type="CSGPolygon3D" parent="mountain/mountain3"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, 24.0457, -2.52956, -17.7592)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-14.0188, -3.27253, -9.23532, 21.2571, -6.67022, 30.3604, 4.59939, -3.5263)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain3/mountain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0432758, -5.10056, -20.3671)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -3.55037, 26.1509, 0.0485792, 42.2272, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain" type="CSGPolygon3D" parent="mountain/mountain3/mountain"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, 1.50203, 12.2571, -26.8583)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -12.2582, 14.6801, -8.60488, 48.104, 0.425407, -3.46379)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain3/mountain/mountain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.765472, -14.5472, -20.8989)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -2.43067, 56.6406, 4.94968, 20.0634, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain4" type="CSGPolygon3D" parent="mountain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119.846, 0, 21.2104)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -6.25127, 14.0053, 0.826453, 8.33753, 4.59939, -3.5263)
+depth = 2.3
+smooth_faces = true
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.10551, -2.08503, -38.9155)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -0.855138, 35.1267, 6.94859, 17.3299, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain" type="CSGPolygon3D" parent="mountain/mountain4"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, 25.4656, -4.23017, -38.0353)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-16.7802, -3.2089, -15.0274, 9.73393, -7.42982, 32.0639, 4.59939, -3.5263)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain4/mountain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.10551, -2.08503, -19.2901)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -6.59473, 21.109, 2.13637, 28.8814, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain" type="CSGPolygon3D" parent="mountain/mountain4/mountain"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, 29.454, -2.52956, -20.6385)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -10.4633, 34.4531, -7.06157, 25.7278, 0.425407, -3.46379)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain4/mountain/mountain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.10551, -2.08503, -19.2901)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -6.59473, 21.109, -4.29867, 50.8731, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain3" type="CSGPolygon3D" parent="mountain/mountain4"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, -66.2339, -2.52956, 9.72089)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-0.906082, 12.2402, -6.25127, 14.0053, 0.826453, 8.33753, 4.59939, -3.5263)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain4/mountain3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.79508, -5.07058, -19.0302)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -2.65337, 37.4655, 6.94859, 17.3299, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain" type="CSGPolygon3D" parent="mountain/mountain4/mountain3"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, 24.0457, -2.52956, -17.7592)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-14.0188, -3.27253, -9.23532, 21.2571, -6.67022, 30.3604, 4.59939, -3.5263)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain4/mountain3/mountain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0432758, -5.10056, -20.3671)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -3.55037, 26.1509, 0.0485792, 42.2272, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain" type="CSGPolygon3D" parent="mountain/mountain4/mountain3/mountain"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, 1.50203, 12.2571, -26.8583)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -12.2582, 14.6801, -8.60488, 48.104, 0.425407, -3.46379)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain4/mountain3/mountain/mountain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.765472, -14.5472, -20.8989)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -2.43067, 56.6406, 4.94968, 20.0634, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain5" type="CSGPolygon3D" parent="mountain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -282.415, 0, 34.9778)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -6.25127, 14.0053, 0.826453, 8.33753, 4.59939, -3.5263)
+depth = 2.3
+smooth_faces = true
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.10551, -2.08503, -38.9155)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -0.855138, 35.1267, 6.94859, 17.3299, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain" type="CSGPolygon3D" parent="mountain/mountain5"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, 25.4656, -4.23017, -38.0353)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-16.7802, -3.2089, -15.0274, 9.73393, -7.42982, 32.0639, 4.59939, -3.5263)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain5/mountain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0012, 1.06665, -18.6074)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, 3.26848, 74.6789, 2.13637, 28.8814, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain" type="CSGPolygon3D" parent="mountain/mountain5/mountain"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, -15.3025, -7.48018, -21.4799)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -10.4633, 34.4531, -7.06157, 25.7278, 0.425407, -3.46379)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain5/mountain/mountain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3453, 1.08301, -24.175)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -6.59473, 21.109, 6.18223, 94.9218, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain3" type="CSGPolygon3D" parent="mountain/mountain5"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, -21.8277, 2.64461, -3.31219)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-22.3783, -4.69606, 11.8645, 78.7759, 13.2193, 37.1364, 4.59939, -3.5263)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain5/mountain3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.79018, 1.57518, -14.3921)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -2.65337, 37.4655, 10.814, 67.6322, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain" type="CSGPolygon3D" parent="mountain/mountain5/mountain3"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, 54.415, -0.991585, -17.5603)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-14.0188, -3.27253, -9.23532, 21.2571, -6.67022, 30.3604, 4.59939, -3.5263)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain5/mountain3/mountain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43354, -6.78, -19.4464)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, 0.19236, 32.4946, 9.29205, 71.3531, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain" type="CSGPolygon3D" parent="mountain/mountain5/mountain3/mountain"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, 1.50203, 12.2571, -26.8583)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -12.2582, 14.6801, -3.66671, 42.5658, 0.425407, -3.46379)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain5/mountain3/mountain/mountain"]
+transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 7.03724, -13.4321, -0.175842)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, 1.75475, 69.8491, 4.94968, 20.0634, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain6" type="CSGPolygon3D" parent="mountain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.3857, 0, -123.807)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -6.25127, 14.0053, 0.826453, 8.33753, 4.59939, -3.5263)
+depth = 2.3
+smooth_faces = true
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.10551, -2.08503, -38.9155)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -0.855138, 35.1267, 6.94859, 17.3299, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain" type="CSGPolygon3D" parent="mountain/mountain6"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, 25.4656, -4.23017, -38.0353)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-16.7802, -3.2089, -15.0274, 9.73393, -7.42982, 32.0639, 4.59939, -3.5263)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain6/mountain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0012, 1.06665, -18.6074)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, 3.26848, 74.6789, 2.13637, 28.8814, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain" type="CSGPolygon3D" parent="mountain/mountain6/mountain"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, -15.3025, -7.48018, -21.4799)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -10.4633, 34.4531, -7.06157, 25.7278, 0.425407, -3.46379)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain6/mountain/mountain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3453, 1.08301, -24.175)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -6.59473, 21.109, 6.18223, 94.9218, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain3" type="CSGPolygon3D" parent="mountain/mountain6"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, -21.8277, 2.64461, -3.31219)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-22.3783, -4.69606, 11.8645, 78.7759, 13.2193, 37.1364, 4.59939, -3.5263)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain6/mountain3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.79018, 1.57518, -14.3921)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -2.65337, 37.4655, 10.814, 67.6322, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain" type="CSGPolygon3D" parent="mountain/mountain6/mountain3"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, 54.415, -0.991585, -17.5603)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-14.0188, -3.27253, -9.23532, 21.2571, -6.67022, 30.3604, 4.59939, -3.5263)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain6/mountain3/mountain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43354, -6.78, -19.4464)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, 0.19236, 32.4946, 9.29205, 71.3531, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain" type="CSGPolygon3D" parent="mountain/mountain6/mountain3/mountain"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, 1.50203, 12.2571, -26.8583)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -12.2582, 14.6801, -3.66671, 42.5658, 0.425407, -3.46379)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain6/mountain3/mountain/mountain"]
+transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 7.03724, -13.4321, -0.175842)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, 1.75475, 69.8491, 4.94968, 20.0634, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain7" type="CSGPolygon3D" parent="mountain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111.038, 0, -26.388)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -6.25127, 14.0053, 0.826453, 8.33753, 4.59939, -3.5263)
+depth = 2.3
+smooth_faces = true
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.10551, -2.08503, -38.9155)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -0.855138, 35.1267, 6.94859, 17.3299, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain" type="CSGPolygon3D" parent="mountain/mountain7"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, 25.4656, -4.23017, -38.0353)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-16.7802, -3.2089, -15.0274, 9.73393, -7.42982, 32.0639, 4.59939, -3.5263)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain7/mountain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.10551, -2.08503, -19.2901)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -6.59473, 21.109, 2.13637, 28.8814, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain" type="CSGPolygon3D" parent="mountain/mountain7/mountain"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, 29.454, -2.52956, -20.6385)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -10.4633, 34.4531, -7.06157, 25.7278, 0.425407, -3.46379)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain7/mountain/mountain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.10551, -2.08503, -19.2901)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -6.59473, 21.109, -4.29867, 50.8731, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain3" type="CSGPolygon3D" parent="mountain/mountain7"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, -66.2339, -2.52956, 9.72089)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-0.906082, 12.2402, -6.25127, 14.0053, 0.826453, 8.33753, 4.59939, -3.5263)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain7/mountain3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.79508, -5.07058, -19.0302)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -2.65337, 37.4655, 6.94859, 17.3299, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain" type="CSGPolygon3D" parent="mountain/mountain7/mountain3"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, 24.0457, -2.52956, -17.7592)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-14.0188, -3.27253, -9.23532, 21.2571, -6.67022, 30.3604, 4.59939, -3.5263)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain7/mountain3/mountain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0432758, -5.10056, -20.3671)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -3.55037, 26.1509, 0.0485792, 42.2272, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain" type="CSGPolygon3D" parent="mountain/mountain7/mountain3/mountain"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, 1.50203, 12.2571, -26.8583)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -12.2582, 14.6801, -8.60488, 48.104, 0.425407, -3.46379)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain7/mountain3/mountain/mountain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.765472, -14.5472, -20.8989)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -2.43067, 56.6406, 4.94968, 20.0634, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain8" type="CSGPolygon3D" parent="mountain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 416.018, 0, -23.0019)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -6.25127, 14.0053, 0.826453, 8.33753, 4.59939, -3.5263)
+depth = 2.3
+smooth_faces = true
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.2927, -16.8356, -35.5518)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -13.1819, 48.4066, 6.94859, 17.3299, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain" type="CSGPolygon3D" parent="mountain/mountain8"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, 25.4656, -4.23017, -38.0353)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-16.7802, -3.2089, -15.0274, 9.73393, -7.42982, 32.0639, 4.59939, -3.5263)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain8/mountain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.10551, -2.08503, -19.2901)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -6.59473, 21.109, 2.13637, 28.8814, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain" type="CSGPolygon3D" parent="mountain/mountain8/mountain"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, 18.5197, -15.0935, -17.6015)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -13.8174, 85.6395, -3.37187, 34.4815, 0.425407, -3.46379)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain8/mountain/mountain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.10551, -2.08503, -19.2901)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -6.59473, 21.109, -4.29867, 50.8731, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain3" type="CSGPolygon3D" parent="mountain/mountain8"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, -66.2339, -2.52956, 9.72089)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-0.906082, 12.2402, -6.25127, 14.0053, 0.826453, 8.33753, 4.59939, -3.5263)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain8/mountain3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.79508, -5.07058, -19.0302)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -2.65337, 37.4655, 6.94859, 17.3299, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain" type="CSGPolygon3D" parent="mountain/mountain8/mountain3"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, 24.0457, -2.52956, -17.7592)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-14.0188, -3.27253, -9.23532, 21.2571, -6.67022, 30.3604, 4.59939, -3.5263)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain8/mountain3/mountain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0432758, -5.10056, -20.3671)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -3.55037, 26.1509, 0.0485792, 42.2272, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain" type="CSGPolygon3D" parent="mountain/mountain8/mountain3/mountain"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, 1.50203, 12.2571, -26.8583)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -12.2582, 14.6801, -8.60488, 48.104, 0.425407, -3.46379)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain8/mountain3/mountain/mountain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.765472, -14.5472, -20.8989)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -2.43067, 56.6406, 4.94968, 20.0634, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain9" type="CSGPolygon3D" parent="mountain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 207.214, 0, -28.8718)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -6.25127, 14.0053, 0.826453, 8.33753, 4.59939, -3.5263)
+depth = 2.3
+smooth_faces = true
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.10551, -2.08503, -38.9155)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -0.855138, 35.1267, 6.94859, 17.3299, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain" type="CSGPolygon3D" parent="mountain/mountain9"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, 25.4656, -4.23017, -38.0353)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-16.7802, -3.2089, -15.0274, 9.73393, -7.42982, 32.0639, 4.59939, -3.5263)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain9/mountain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4842, 1.06665, -18.6074)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -10.344, 86.5016, 2.13637, 28.8814, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain" type="CSGPolygon3D" parent="mountain/mountain9/mountain"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, -42.6233, -23.8967, -21.4799)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -10.4633, 34.4531, -7.06157, 25.7278, 0.425407, -3.46379)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain9/mountain/mountain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.05144, -19.971, -17.251)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -6.59473, 21.109, -4.93659, 87.3446, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain3" type="CSGPolygon3D" parent="mountain/mountain9"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, -19.7942, -1.37408, -1.99054)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-22.3783, -4.69606, -10.6122, 69.0402, 13.2193, 37.1364, 4.59939, -3.5263)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain9/mountain3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.5682, -4.74026, -12.3152)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -2.65337, 37.4655, -5.52711, 73.3099, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain" type="CSGPolygon3D" parent="mountain/mountain9/mountain3"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, 54.415, -0.991585, -17.5603)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-14.0188, -3.27253, -9.23532, 21.2571, -6.67022, 30.3604, 4.59939, -3.5263)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain9/mountain3/mountain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8204, -15.9101, -16.4438)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, 0.19236, 32.4946, -3.73046, 44.3556, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain" type="CSGPolygon3D" parent="mountain/mountain9/mountain3/mountain"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, 1.50203, 12.2571, -26.8583)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -12.2582, 14.6801, -8.20959, 46.2771, 0.425407, -3.46379)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain9/mountain3/mountain/mountain"]
+transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 11.7809, -15.7543, 0.587769)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -1.90767, 46.7383, 4.94968, 20.0634, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain10" type="CSGPolygon3D" parent="mountain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 312.303, -1.52588e-05, -41.6306)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -6.25127, 14.0053, 0.826453, 8.33753, 4.59939, -3.5263)
+depth = 2.3
+smooth_faces = true
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -124.492, -3.017, 12.9888)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, 5.44916, 57.6461, 12.4342, 20.6159, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain" type="CSGPolygon3D" parent="mountain/mountain10"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, -33.1307, -3.60608, -19.8658)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-16.7802, -3.2089, -15.0274, 9.73393, -7.42982, 32.0639, 4.59939, -3.5263)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain10/mountain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.61267, -12.4462, 19.9483)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -0.790344, 64.3771, 8.45605, 34.1922, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain" type="CSGPolygon3D" parent="mountain/mountain10/mountain"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, -24.253, -24.1666, -24.9033)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -10.4633, 34.4531, -7.06157, 25.7278, 0.425407, -3.46379)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain10/mountain/mountain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.2552, -8.61809, 34.2859)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-13.1684, 16.87, -11.5689, 76.0725, -7.59357, 92.0451, 9.08832, 18.6408)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain3" type="CSGPolygon3D" parent="mountain/mountain10"]
+transform = Transform3D(1.56025, 0, 0, 0, 1, 0, 0, 0, 1, -21.8277, 2.64461, -3.31219)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-22.3783, -4.69606, 11.8645, 78.7759, 13.2193, 37.1364, 4.59939, -3.5263)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="mountain2" type="CSGPolygon3D" parent="mountain/mountain10/mountain3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.79018, 1.57518, -14.3921)
+material_override = SubResource("StandardMaterial3D_i6yw1")
+polygon = PackedVector2Array(-12.1384, -3.06662, -2.65337, 37.4655, 10.814, 67.6322, 16.6367, -3.21223)
+material = SubResource("StandardMaterial3D_x2exi")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_bjt6w")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.802959, -0.214168, 0.556227, 0.324433, 0.625805, 0.709303, -0.5, 0.75, -0.433013, 8.35581, 4.22916, 2.39969)
+light_color = Color(1, 1, 0.517647, 1)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.9912, 0.0140182, -0.131626, -0.0313676, 0.990929, -0.130677, 0.1286, 0.133656, 0.982648, 4.44212, 2.13439, 7.42175)
+fov = 68.4079
+
+[node name="guy running for his tire" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.999801, 0.00128597, -0.0199238, 0, 0.997923, 0.0644104, 0.0199652, -0.0643976, 0.997724, 0, -0.287, 0.841663)
+material_override = SubResource("StandardMaterial3D_6mgu3")
+mesh = SubResource("CapsuleMesh_swoy3")
+script = ExtResource("4_wp51b")
+
+[node name="front left wheel moving" type="CSGTorus3D" parent="guy running for his tire"]
+transform = Transform3D(0.0416107, -0.99912, -0.00518014, 0.997215, 0.0418515, -0.0617299, 0.0618926, -0.00259711, 0.99808, 7.1522, 0.465618, -5.9277)
+inner_radius = 1.05501
+outer_radius = 0.512902
+sides = 45
+ring_sides = 16
+material = SubResource("StandardMaterial3D_0qc4a")
